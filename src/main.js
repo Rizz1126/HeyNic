@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const scenes = document.querySelectorAll('.scene');
   const insultMessage = document.getElementById('insultMessage');
   
+  const loginMusic = document.getElementById('loginMusic');
+  const countdownScreen = document.getElementById('countdownScreen');
+  const countdownTimer = document.getElementById('countdownTimer');
+  const btnWait = document.getElementById('btnWait');
+  const btnCode = document.getElementById('btnCode');
+  const codeContainer = document.getElementById('codeContainer');
+  const codeInput = document.getElementById('codeInput');
+  const btnSubmitCode = document.getElementById('btnSubmitCode');
+  const codeError = document.getElementById('codeError');
+  
   const insults = [
     "Do you need glasses?",
     "Always missing, how tiring.",
@@ -29,6 +39,60 @@ document.addEventListener('DOMContentLoaded', () => {
     "Go practice your aim first"
   ];
   
+  // --- Pre-Gate Logic (Countdown) ---
+  const TARGET_DATE = new Date('2026-05-24T15:00:00Z').getTime();
+  let countdownInterval;
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = TARGET_DATE - now;
+
+    if (distance <= 0) {
+      clearInterval(countdownInterval);
+      countdownTimer.textContent = "00:00:00";
+      btnWait.textContent = "Enter";
+      btnWait.removeAttribute('disabled');
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownTimer.textContent = `${days > 0 ? days + 'd ' : ''}${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  let loginMusicStarted = false;
+  document.body.addEventListener('click', () => {
+    if (!loginMusicStarted && !countdownScreen.classList.contains('hidden')) {
+      loginMusicStarted = true;
+      loginMusic.volume = 0.5;
+      loginMusic.play().catch(e => console.log("Audio play failed:", e));
+    }
+  });
+
+  countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  function unlockGate() {
+    countdownScreen.classList.add('hidden');
+    introGate.classList.remove('hidden');
+  }
+
+  btnWait.addEventListener('click', () => unlockGate());
+
+  btnCode.addEventListener('click', () => codeContainer.classList.remove('hidden'));
+
+  btnSubmitCode.addEventListener('click', () => {
+    if (codeInput.value.trim().toLowerCase() === "jamiewillbemine") {
+      unlockGate();
+    } else {
+      codeError.classList.remove('hidden');
+      setTimeout(() => codeError.classList.add('hidden'), 2000);
+    }
+  });
+
   // Custom Cursor
   if (window.innerWidth > 768) {
     document.addEventListener('mousemove', (e) => {
@@ -100,6 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function startGame() {
     introGate.classList.add('hidden');
     app.classList.add('visible');
+    
+    loginMusic.pause();
     
     bgMusic.volume = 0.5;
     bgMusic.play().then(() => {

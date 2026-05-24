@@ -481,6 +481,67 @@ a:hover ~ .cursor, button:hover ~ .cursor {
   background: rgba(255, 255, 255, 0.4);
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
+/* --- Pre-Gate Screens --- */
+.pre-gate-screen {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: #000;
+  z-index: 10005;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+.pre-gate-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.timer-text {
+  font-family: var(--font-typewriter);
+  font-size: 3rem;
+  color: var(--color-highlight);
+  margin: 1rem 0;
+}
+.timer-desc {
+  font-family: var(--font-typewriter);
+  color: var(--color-muted);
+}
+.countdown-actions {
+  display: flex;
+  gap: 15px;
+}
+.game-btn {
+  background: transparent;
+  border: 1px solid var(--color-highlight);
+  color: var(--color-highlight);
+  font-family: var(--font-typewriter);
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  cursor: none;
+  transition: all 0.3s;
+}
+.game-btn:hover:not(:disabled) {
+  background: var(--color-highlight);
+  color: #000;
+}
+.game-btn:disabled {
+  opacity: 0.5;
+  border-color: var(--color-muted);
+  color: var(--color-muted);
+}
+.code-input {
+  background: transparent;
+  border: 1px solid var(--color-muted);
+  color: var(--color-text);
+  font-family: var(--font-typewriter);
+  font-size: 1.2rem;
+  padding: 10px;
+  outline: none;
+  text-align: center;
+  margin-right: 10px;
+}
 
 /* Mobile Responsive */
 @media (max-width: 768px) {

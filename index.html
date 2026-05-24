@@ -13,6 +13,9 @@
     <audio id="bgMusic" loop>
       <source src="/audio/pretty_please.mp3" type="audio/mpeg">
     </audio>
+    <audio id="loginMusic" loop>
+      <source src="/audio/Dutch Melrose benny mayne PRETTY PLEASE KARAOKE.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Global Effects Overlays -->
     <div class="noise-overlay"></div>
@@ -28,8 +31,25 @@
     <div class="cursor"></div>
     <div class="cursor-trail"></div>
 
+    <!-- Countdown Login Screen -->
+    <div id="countdownScreen" class="pre-gate-screen">
+      <h2 class="handwritten">belum waktunya...</h2>
+      <div id="countdownTimer" class="timer-text"></div>
+      <p class="timer-desc">wait until May 25, 00:00 KST</p>
+      
+      <div class="countdown-actions mt-8">
+        <button id="btnWait" class="game-btn" disabled>Wait for it...</button>
+        <button id="btnCode" class="game-btn">unless you got a code</button>
+      </div>
+      <div id="codeContainer" class="hidden mt-4">
+        <input type="text" id="codeInput" class="code-input" placeholder="enter code">
+        <button id="btnSubmitCode" class="game-btn">Submit</button>
+      </div>
+      <p id="codeError" class="insult-text hidden">Wrong code!</p>
+    </div>
+
     <!-- Intro Gate -->
-    <div id="introGate" class="intro-gate">
+    <div id="introGate" class="intro-gate hidden">
       <div id="dartGameContainer" class="dart-container">
         <p class="dart-instruction">hit the target to unlock</p>
         <div class="target-area">
