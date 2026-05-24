@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Nicole Joelle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+      <source src="/audio/pretty_please.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Global Effects Overlays -->
+    <div class="noise-overlay"></div>
+    <div class="vhs-overlay"></div>
+    
+    <!-- Controls -->
+    <div class="controls">
+      <button id="vhsToggle">VHS: ON</button>
+      <button id="musicToggle">AUDIO: ON</button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-trail"></div>
+
+    <!-- Countdown Screen -->
+    <div id="countdownScreen" class="pre-gate-screen hidden">
+      <h2 class="handwritten">belum waktunya...</h2>
+      <div id="countdownTimer" class="timer-text"></div>
+      <p class="timer-desc">tunggu sampai 25 Mei 00.00 KST</p>
+    </div>
+
+    <!-- Dart Game Screen -->
+    <div id="dartScreen" class="pre-gate-screen hidden">
+      <h2 class="handwritten mb-4">lempar dart untuk membuka</h2>
+      <div class="dart-board">
+        <div class="target-zone" id="targetZone"></div>
+        <div class="moving-dart" id="movingDart"></div>
+      </div>
+      <button id="throwBtn" class="game-btn">Lempar!</button>
+      <p id="insultMessage" class="insult-text"></p>
+    </div>
+
+    <!-- Intro Gate -->
+    <div id="introGate" class="intro-gate hidden">
+      <p class="click-prompt">click to enter</p>
+    </div>
+
+    <!-- Main Container -->
+    <main id="app">
+      
+      <!-- Scene 1: Typewriter Intro -->
+      <section class="scene intro-scene" id="scene1">
+        <div class="typewriter-container">
+          <p class="type-line" id="line1"></p>
+          <p class="type-line" id="line2"></p>
+          <p class="type-line" id="line3"></p>
+          <h1 class="title-reveal" id="titleReveal">for nicole joelle.</h1>
+          <p class="scroll-prompt">scroll down</p>
+        </div>
+      </section>
+
+      <!-- Scene 2: The Journey Begins -->
+      <section class="scene poetry-scene">
+        <div class="content fade-up">
+          <p>Happy Birthday to the kind of person people write films and songs about.</p>
+        </div>
+      </section>
+
+      <section class="scene poetry-scene has-bg image-1 parallax">
+        <div class="overlay-dark"></div>
+        <div class="content fade-up">
+          <p>You have the kind of soul that turns ordinary places into beautiful memories.</p>
+        </div>
+      </section>
+
+      <section class="scene poetry-scene">
+        <div class="content fade-up">
+          <p>Some people are loud with their existence, but you leave your mark quietly, deeply, and permanently.</p>
+        </div>
+      </section>
+
+      <section class="scene poetry-scene has-bg image-2 parallax">
+        <div class="overlay-dark"></div>
+        <div class="content fade-up">
+          <p>You make life feel cinematic in the softest way possible.</p>
+          <p class="mt-4">You belong to late-night playlists, old bookstores, coffee stains on paper, and conversations people never forget.</p>
+        </div>
+      </section>
+
+      <section class="scene poetry-scene">
+        <div class="content fade-up">
+          <p class="handwritten">You are art without trying to be.</p>
+        </div>
+      </section>
+
+      <section class="scene poetry-scene has-bg image-3 parallax">
+        <div class="overlay-dark"></div>
+        <div class="content fade-up">
+          <p>The world feels more interesting because you exist in it.</p>
+          <p class="mt-4">You carry warmth in the most effortless way.</p>
+          <p class="mt-4">You are the type of person that makes others feel understood without needing many words.</p>
+        </div>
+      </section>
+
+      <section class="scene poetry-scene">
+        <div class="content fade-up">
+          <p>Your presence feels like nostalgia for something I never want to lose.</p>
+          <p class="mt-4">Happy Birthday to someone genuinely rare.</p>
+        </div>
+      </section>
+      
+      <section class="scene poetry-scene has-bg image-4 parallax">
+        <div class="overlay-dark"></div>
+        <div class="content fade-up">
+          <p>I hope life stays soft with you.</p>
+          <p class="mt-4">I hope you always find beauty in small things, even on difficult days.</p>
+          <p class="mt-4">You deserve friendships, love, and moments that feel honest and real.</p>
+        </div>
+      </section>
+
+      <section class="scene poetry-scene">
+        <div class="content fade-up">
+          <p>Thank you for being one of the safest and most beautiful souls I’ve ever met.</p>
+          <p class="mt-4">You make people feel seen.</p>
+          <p class="mt-4 handwritten">And that is a very special thing.</p>
+        </div>
+      </section>
+
+      <!-- Final Emotional Ending -->
+      <section class="scene final-scene">
+        <div class="content fade-up">
+          <p>Some people pass through life quietly,<br>but somehow still change the atmosphere of every room they enter.</p>
+          <p class="mt-8">You are one of those people.</p>
+          <p class="mt-8">Thank you for existing exactly the way you do.<br>The world genuinely feels softer, deeper, and more beautiful with you in it.</p>
+          <h2 class="mt-12 title-glow">Happy Birthday, Nicole Joelle.</h2>
+        </div>
+      </section>
+
+      <!-- Photo Gallery (Scrapbook Style) -->
+      <section class="scene gallery-scene">
+        <h3 class="gallery-title handwritten">for the moments that mattered.</h3>
+        <div class="scrapbook">
+          <!-- Photos will be injected via JS -->
+        </div>
+      </section>
+
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
