@@ -28,27 +28,19 @@
     <div class="cursor"></div>
     <div class="cursor-trail"></div>
 
-    <!-- Countdown Screen -->
-    <div id="countdownScreen" class="pre-gate-screen hidden">
-      <h2 class="handwritten">not time yet...</h2>
-      <div id="countdownTimer" class="timer-text"></div>
-      <p class="timer-desc">wait until May 25, 00:00 KST</p>
-    </div>
-
-    <!-- Dart Game Screen -->
-    <div id="dartScreen" class="pre-gate-screen hidden">
-      <h2 class="handwritten mb-4">throw the dart to unlock</h2>
-      <div class="dart-board">
-        <div class="target-zone" id="targetZone"></div>
-        <div class="moving-dart" id="movingDart"></div>
-      </div>
-      <button id="throwBtn" class="game-btn">Throw!</button>
-      <p id="insultMessage" class="insult-text"></p>
-    </div>
-
     <!-- Intro Gate -->
-    <div id="introGate" class="intro-gate hidden">
-      <p class="click-prompt">click to enter</p>
+    <div id="introGate" class="intro-gate">
+      <div id="dartGameContainer" class="dart-container">
+        <p class="dart-instruction">hit the target to unlock</p>
+        <div class="target-area">
+          <div class="target-board" id="targetBoard">
+            <div class="bullseye"></div>
+          </div>
+        </div>
+        <div class="dart" id="dart">↑</div>
+        <p class="click-prompt mt-8">click/tap to throw</p>
+        <p id="insultMessage" class="insult-text"></p>
+      </div>
     </div>
 
     <!-- Main Container -->
@@ -61,7 +53,6 @@
           <p class="type-line" id="line2"></p>
           <p class="type-line" id="line3"></p>
           <h1 class="title-reveal" id="titleReveal">for nicole joelle.</h1>
-          <p class="scroll-prompt">scroll down</p>
         </div>
       </section>
 
@@ -132,21 +123,19 @@
         </div>
       </section>
 
-      <!-- Final Emotional Ending -->
-      <section class="scene final-scene">
-        <div class="content fade-up">
-          <p>Some people pass through life quietly,<br>but somehow still change the atmosphere of every room they enter.</p>
-          <p class="mt-8">You are one of those people.</p>
-          <p class="mt-8">Thank you for existing exactly the way you do.<br>The world genuinely feels softer, deeper, and more beautiful with you in it.</p>
-          <h2 class="mt-12 title-glow">Happy Birthday, Nicole Joelle.</h2>
-        </div>
-      </section>
-
-      <!-- Photo Gallery (Scrapbook Style) -->
-      <section class="scene gallery-scene">
-        <h3 class="gallery-title handwritten">for the moments that mattered.</h3>
-        <div class="scrapbook">
+      <!-- Photo Gallery and Final Text -->
+      <section class="scene gallery-scene" id="galleryScene">
+        <div class="scrapbook" id="scrapbook">
           <!-- Photos will be injected via JS -->
+        </div>
+        
+        <div class="final-text-overlay" id="finalTextOverlay">
+          <div class="floating-text">
+            <p>Some people pass through life quietly,<br>but somehow still change the atmosphere of every room they enter.</p>
+            <p class="mt-8">You are one of those people.</p>
+            <p class="mt-8">Thank you for existing exactly the way you do.<br>The world genuinely feels softer, deeper, and more beautiful with you in it.</p>
+            <h2 class="mt-12 title-glow">Happy Birthday, Nicole Joelle.</h2>
+          </div>
         </div>
       </section>
 
