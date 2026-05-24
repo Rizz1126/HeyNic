@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let gameActive = false;
 
   const insults = [
-    "Matanya minus berapa sih?",
-    "Meleset mulu, cape deh.",
-    "Bukan di situ woi!",
-    "Kurang fokus nih!",
-    "Yakin bisa masuk?",
-    "Gitu aja gak kena!",
-    "Payah banget wkwk",
-    "Belajar lempar dulu sana"
+    "Do you need glasses?",
+    "Always missing, how tiring.",
+    "Not even close, come on!",
+    "You lack focus!",
+    "Are you even trying?",
+    "How did you miss that?!",
+    "You suck at this lol",
+    "Go practice your aim first"
   ];
 
   function initDartGame() {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gameActive = false;
       cancelAnimationFrame(dartAnimFrame);
       insultMessage.style.color = "var(--color-highlight)";
-      insultMessage.textContent = "Mantap! Membuka...";
+      insultMessage.textContent = "Nice shot! Unlocking...";
       
       setTimeout(() => {
         dartScreen.classList.add('hidden');
