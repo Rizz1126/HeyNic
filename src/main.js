@@ -204,10 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
       'WhatsApp Image 2026-05-24 at 2.39.31 PM (3).jpeg'
     ];
     const captions = [
-      "memories that stayed.",
-      "our little archive.",
-      "for the moments that mattered.",
-      "always."
+      "the rare kind of genuine.",
+      "quietly remarkable.",
+      "warmth in human form.",
+      "art without trying."
     ];
     const scrapbook = document.querySelector('.scrapbook');
     const finalTextOverlay = document.getElementById('finalTextOverlay');
